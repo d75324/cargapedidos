@@ -1,8 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<h3>Quien va a cargar la orden?</h3>
+<hr>
 
-<h2>Selecciona un SKU:</h2>
+<form>
+    <label for="sku">Cargar a nombre del Usuario:</label><br>
+    <input list="skus" id="sku" name="sku">
+    <datalist id="skus">
+      <option value="Anaximandro">Anaximandro de Tales</option>
+      <option value="Neron">Neron Favio</option>
+      <option value="Tito">Hijo de Vespaciano</option>
+    </datalist><br>
+  </form>
+<hr>
+
+<h3>Selecciona un SKU:</h3>
 <select id="skuSelect" onchange="autocompletarCampos()">
   <option value="CAB001">CAB001</option>
   <option value="CAB002">CAB002</option>
@@ -39,7 +52,8 @@
   }
 </script>
 
-<form action="{% url 'pedido' %}" method="post">
+<hr>
+<form action="{% url 'soloform' %}" method="post">
     {% csrf_token %}
     <button type="submit" class="btn btn-primary">
         Agregar Otro Item

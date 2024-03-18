@@ -16,3 +16,15 @@ class CargarPedidos(models.Model):
 
     class Meta:
         app_label = 'Pedidos_1Hora'
+    
+    def subtotal():
+        pass
+
+    def iva105():
+        pass
+
+    def iva21():
+        pass
+
+    def total():
+        pass
