@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h2>Selecciona un SKU:</h2>
+<select id="skuSelect" onchange="autocompletarCampos()">
+  <option value="CAB001">CAB001</option>
+  <option value="CAB002">CAB002</option>
+  <option value="CAB003">CAB003</option>
+  <option value="CAB004">CAB004</option>
+</select>
+
+<h3>Campos autocompletados:</h3>
+<label for="descripcion">Descripción:</label>
+<input type="text" id="descripcion" disabled><br><br>
+
+<label for="precio">Precio:</label>
+<input type="text" id="precio" disabled><br><br>
+
+<label for="impuesto">Impuesto:</label>
+<input type="text" id="impuesto" disabled><br><br>
+
+<script>
+  const sku_opciones = [
+    ['CAB001', 'cab cero uno', 105.13, 21],
+    ['CAB002', 'cab cero dos', 324.54, 21],
+    ['CAB003', 'cab cero tres', 220.15, 10.5],
+    ['CAB004', 'cab cero cuatro', 36.78, 10.5]
+  ];
+
+  function autocompletarCampos() {
+    const skuSeleccionado = document.getElementById('skuSelect').value;
+    const opcionSeleccionada = sku_opciones.find(opcion => opcion[0] === skuSeleccionado);
+    if (opcionSeleccionada) {
+      document.getElementById('descripcion').value = opcionSeleccionada[1];
+      document.getElementById('precio').value = opcionSeleccionada[2];
+      document.getElementById('impuesto').value = opcionSeleccionada[3];
+    }
+  }
+</script>
+
+<form action="{% url 'pedido' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">
+        Agregar Otro Item
+    </button>
+    <button type="submit" class="btn btn-primary">
+        Cargar y Cerrar
+    </button>
+</form>
+
+
+{% endblock %}

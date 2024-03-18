@@ -5,9 +5,8 @@ class FormularioCargaPedidos(forms.ModelForm):
     class Meta:
         model = CargarPedidos
         fields = [
-            "sky",
+            "sku",
             "desc",
             "price",
             "iva",
-            "total_iva",
         ]

@@ -10,14 +10,9 @@ class CargarPedidos(models.Model):
     ]
 
     sku = models.CharField(max_length=7, choices=sku_opciones)
+    desc = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    iva = models.DecimalField(max_digits=5, decimal_places=2)
 
     class Meta:
         app_label = 'Pedidos_1Hora'
-
-    def __init__(self, sku, desc, price, iva):
-        self.sku = sku
-        self.desc = desc
-        self.price = price
-        self.iva = iva
-    
-
