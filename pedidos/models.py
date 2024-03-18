@@ -17,14 +17,14 @@ class CargarPedidos(models.Model):
     class Meta:
         app_label = 'Pedidos_1Hora'
     
+    # va a retornar la suma de los precios sin IVA
     def subtotal():
         pass
 
-    def iva105():
+    # va a retornar el iva encapsulado: el total para 10,5% y el total para 21%
+    def iva105y21():
         pass
-
-    def iva21():
-        pass
-
+    
+    # va a retornar la suma de subtotal, iva de 10,5 e iva de 21%
     def total():
         pass
