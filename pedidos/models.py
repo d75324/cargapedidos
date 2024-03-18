@@ -11,13 +11,14 @@ class CargarPedidos(models.Model):
 
     sku = models.CharField(max_length=7, choices=sku_opciones)
     desc = models.CharField(max_length=100)
+    qty = models.IntegerField(max_length=3)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     iva = models.DecimalField(max_digits=5, decimal_places=2)
 
     class Meta:
         app_label = 'Pedidos_1Hora'
     
-    # va a retornar la suma de los precios sin IVA
+    # va a retornar la suma de los precios (price x qty) sin IVA
     def subtotal():
         pass
 
